@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <title>GatiFy</title>
+  
+</head>
+<body>
+  <h1>Adoção de gatinhos</h1>
+  <br><br>
+  <h3>Cadastre um Gatinho 🐱</h3>
+  <br>
+  <br>
+  
+
+  <div class="cadastrogato">
+    <input type="text" id="nomeGato" placeholder="Nome do gatinho" />
+    <br>
+    <input type="text" id="descricaoGato" placeholder="Descrição do gatinho" />
+    <br>
+    <button onclick="cadastrarGato()">Cadastrar</button>
+    <ul id="listaGatos"></ul>
+    </div>
+</body>
+<style>
+
+  h1{  text-align: center;
+  font-family: serif;
+  font-size: 64px;
+  background-color: whitesmoke;
+  width: 100%;
+  padding: 20px 0;  /* espaço em cima e embaixo */
+  margin: 0;}
+          body {
+      background-image: url("wallpaper.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+      margin: 0;
+      
+    }
+    h3{
+      background-color: #563d7c;
+      display: inline;
+      font-family: serif;
+      font-size: 24px;
+    }
+     .cadastrogato input {
+    font-size: 18px;
+    padding: 10px;
+    margin-right: 8px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 3px solid #ccc;
+    margin: 10px 5px;
+  }
+
+  .cadastrogato button {
+    font-size: 18px;
+    padding: 10px;
+    margin-right: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background-color: #6b5b95;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+
+  .cadastrogato button:hover { 
+    background-color: #563d7c;
+  }
+
+  #listaGatos li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: serif;
+  font-size: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  max-width: 400px;
+  }
+
+  #listaGatos img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 12px;
+    object-fit: cover;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+  </style>
+  <script>
+ function cadastrarGato() {
+  const nome = document.getElementById('nomeGato').value.trim();
+  const descricao = document.getElementById('descricaoGato').value.trim();
+  const lista = document.getElementById('listaGatos');
+
+  if (nome !== '') {
+    const li = document.createElement('li');// cria elemento lista
+
+    const img = document.createElement('img'); //cria elemento imgm
+    img.src = 'https://cdn-icons-png.flaticon.com/512/802/802404.png'; 
+    img.alt = 'Foto do gatinho';
+
+    const texto = document.createElement('div'); 
+    texto.innerHTML = `<strong>${nome}</strong><br><small>${descricao}</small>`;
+    //strong negrito e small para ser uma descrição, algo mais sutil// 
+    
+
+    li.appendChild(img);
+    li.appendChild(texto);
+    lista.appendChild(li);
+
+    document.getElementById('nomeGato').value = '';
+    document.getElementById('descricaoGato').value = '';
+  } else {
+    alert('Digite um nome de gatinho!');
+  }
+}
+
+    
+  </script>
+</html>
